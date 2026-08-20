@@ -104,7 +104,10 @@ const GEM_ADDONS = [
 ];
 
 const TIME_SLOTS = buildTimeSlots();
-const BOOKING_WEBHOOK_URL = import.meta.env.PUBLIC_BOOKING_WEBHOOK_URL?.trim() ?? "";
+const BOOKING_WEBHOOK_URL =
+  import.meta.env.PUBLIC_N8N_WEBHOOK_URL?.trim() ||
+  import.meta.env.PUBLIC_BOOKING_WEBHOOK_URL?.trim() ||
+  "";
 
 function buildTimeSlots(): string[] {
   const slots: string[] = [];
@@ -499,7 +502,8 @@ export function initBookingModal(): void {
   async function submitBooking() {
     if (!isValid() || submitting) return;
     if (!BOOKING_WEBHOOK_URL) {
-      setSubmitError("Booking is not configured yet. Please call to reserve your session.");
+      console.log("[booking] webhook URL:", BOOKING_WEBHOOK_URL || "(empty/undefined)");
+      setSubmitError("Booking is currently not available");
       return;
     }
     submitting = true;
@@ -507,6 +511,7 @@ export function initBookingModal(): void {
     updateFooter();
 
     try {
+      console.log("[booking] webhook URL:", BOOKING_WEBHOOK_URL);
       const response = await fetch(BOOKING_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

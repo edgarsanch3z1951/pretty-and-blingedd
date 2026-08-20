@@ -3,6 +3,7 @@
 interface ImportMetaEnv {
   readonly PUBLIC_BOOKING_URL?: string;
   readonly PUBLIC_INSTAGRAM_URL?: string;
+  readonly PUBLIC_N8N_WEBHOOK_URL?: string;
   readonly PUBLIC_BOOKING_WEBHOOK_URL?: string;
   readonly PUBLIC_SITE_URL?: string;
 }
