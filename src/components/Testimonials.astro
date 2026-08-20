@@ -1,0 +1,59 @@
+---
+import BookButton from "./BookButton.astro";
+
+const quotes = [
+  {
+    name: "Maya R.",
+    place: "Oxnard",
+    quote:
+      "I didn’t want a dental-office vibe. She came to my place and my smile is so much brighter.",
+  },
+  {
+    name: "Jasmine T.",
+    place: "Ventura",
+    quote:
+      "The gem is dainty and pretty. Booking was easy and I felt taken care of the whole time.",
+  },
+  {
+    name: "Elena S.",
+    place: "Camarillo",
+    quote:
+      "Zero awkwardness, super professional, and my teeth look like I just left a photoshoot.",
+  },
+];
+---
+
+<section class="bg-white px-5 py-12 lg:px-8 lg:py-16" aria-labelledby="love-heading">
+  <div class="mx-auto max-w-5xl">
+    <p class="text-center text-[0.7rem] font-bold uppercase tracking-[0.28em] text-lip">Loved in Ventura County</p>
+    <h2 id="love-heading" class="mt-2 text-center font-display text-3xl italic text-ink sm:text-4xl">
+      What clients are saying
+    </h2>
+    <p class="mx-auto mt-3 max-w-md text-center text-sm text-ink-muted">
+      Placeholder quotes — swap in real names and reviews whenever you’re ready.
+    </p>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {
+        quotes.map((item) => (
+          <figure class="flex flex-col rounded-3xl bg-cream p-6 ring-1 ring-blush">
+            <div class="text-lip" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <blockquote class="mt-3 flex-1 text-sm leading-relaxed text-ink">
+              “{item.quote}”
+            </blockquote>
+            <figcaption class="mt-4 text-sm font-bold text-ink">
+              {item.name}
+              <span class="font-medium text-ink-muted"> · {item.place}</span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="mt-9 flex justify-center">
+      <BookButton class="w-full max-w-xs" />
+    </div>
+  </div>
+</section>

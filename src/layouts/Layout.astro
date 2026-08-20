@@ -1,0 +1,74 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const site = Astro.site?.origin ?? "https://prettyandblingedd.com";
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImage = new URL("/images/og-image.webp", site).href;
+
+const {
+  title = "Teeth Whitening & Tooth Gems in Ventura County | prettyandblingedd",
+  description = "Professional teeth whitening and tooth gems by a Certified Dental Assistant. Home-based and mobile visits across Ventura County.",
+} = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  name: "prettyandblingedd",
+  description: "Bright smiles. Pretty gems. At your door.",
+  url: site,
+  telephone: "+1-805-843-4728",
+  priceRange: "$$",
+  image: ogImage,
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Ventura County, CA",
+  },
+  sameAs: ["https://www.instagram.com/prettyandblingedd/"],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#EC1E79" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/webp" href="/images/logo.webp" />
+    <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="prettyandblingedd" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="prettyandblingedd — teeth whitening and tooth gems in Ventura County" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-cream text-ink antialiased">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<dialog id="booking-dialog" aria-labelledby="booking-dialog-title" aria-modal="true">
+  <div class="bk-shell">
+    <div class="bk-header">
+      <div>
+        <p id="booking-dialog-eyebrow" class="bk-eyebrow">Reserve your glow</p>
+        <h2 id="booking-dialog-title" class="bk-title">Book Your Session</h2>
+      </div>
+      <button
+        type="button"
+        class="bk-close"
+        data-close-booking
+        aria-label="Close booking"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div id="booking-form-view">
+      <form id="booking-form" novalidate>
+        <div class="bk-body">
+          <div class="bk-tabs" role="tablist" aria-label="Service type">
+            <button
+              type="button"
+              class="bk-tab is-active"
+              role="tab"
+              id="tab-whitening"
+              data-category="whitening"
+              aria-selected="true"
+              aria-controls="booking-services"
+            >
+              Teeth Whitening
+            </button>
+            <button
+              type="button"
+              class="bk-tab"
+              role="tab"
+              id="tab-gems"
+              data-category="gems"
+              aria-selected="false"
+              aria-controls="booking-services"
+            >
+              Tooth Gems
+            </button>
+          </div>
+
+          <div id="booking-services" class="bk-services" role="tabpanel" aria-labelledby="tab-whitening"></div>
+
+          <div id="booking-gem-addon" class="bk-addon" hidden>
+            <p class="bk-section-label">Add Tooth Gems? <span>(optional)</span></p>
+            <div id="booking-gem-choices" class="bk-chips" role="group" aria-label="Optional tooth gems"></div>
+            <p id="booking-gem-note" class="bk-hint"></p>
+          </div>
+
+          <div id="booking-sessions" class="bk-sessions"></div>
+
+          <div class="bk-contact">
+            <p class="bk-section-label">Your details</p>
+
+            <label class="bk-field">
+              <span>Phone number <abbr title="required">*</abbr></span>
+              <input
+                id="booking-phone"
+                class="bk-input"
+                type="tel"
+                name="phone"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="(805) 555-1234"
+                required
+              />
+            </label>
+
+            <p class="bk-field-label">Appointment location <abbr title="required">*</abbr></p>
+            <div class="bk-locations" role="group" aria-label="Appointment location">
+              <button type="button" class="bk-loc" data-location="studio" aria-pressed="false">
+                <strong>Visit My Location</strong>
+                <span>You come to me</span>
+              </button>
+              <button type="button" class="bk-loc" data-location="mobile" aria-pressed="false">
+                <strong>Mobile Visit</strong>
+                <span>I come to you</span>
+              </button>
+            </div>
+
+            <div id="booking-address-wrap" class="bk-expand" aria-hidden="true">
+              <div>
+                <label class="bk-field">
+                  <span>Address <abbr title="required">*</abbr></span>
+                  <textarea
+                    id="booking-address"
+                    class="bk-input bk-textarea"
+                    name="address"
+                    autocomplete="street-address"
+                    rows="2"
+                    placeholder="Street, city, and any gate or parking notes"
+                    tabindex="-1"
+                  ></textarea>
+                </label>
+              </div>
+            </div>
+
+            <label class="bk-field">
+              <span>Email <span class="bk-optional">optional — for confirmation</span></span>
+              <input
+                id="booking-email"
+                class="bk-input"
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@email.com"
+              />
+            </label>
+          </div>
+        </div>
+
+        <p id="booking-submit-error" class="bk-submit-error" hidden role="alert"></p>
+        <div class="bk-footer">
+          <div class="bk-total-block">
+            <p class="bk-total-label">Total</p>
+            <p id="booking-total" class="bk-total" aria-live="polite">$0</p>
+            <p id="booking-total-sub" class="bk-total-sub" hidden></p>
+          </div>
+          <button id="booking-confirm" class="btn-cta bk-confirm" type="submit" disabled aria-disabled="true">
+            Confirm Booking
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="booking-success-view" class="bk-success" hidden>
+      <div class="bk-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.15"></circle>
+          <path
+            d="M7.5 12.5l3 3 6-6.5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+      <div id="booking-success-body"></div>
+      <div class="bk-success-actions">
+        <button type="button" id="booking-another" class="btn-outline">Book another</button>
+        <button type="button" id="booking-done" class="btn-cta">Done</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  import { initBookingModal } from "../scripts/booking";
+  initBookingModal();
+</script>

@@ -1,0 +1,48 @@
+---
+import BookButton from "./BookButton.astro";
+import Sparkle from "./Sparkle.astro";
+
+const benefits = [
+  {
+    title: "Professional-grade whitening",
+    body: "Spa-level brightness with professional products — pretty results, not a clinical waiting-room vibe.",
+  },
+  {
+    title: "Certified expertise",
+    body: "Every session is performed by a Certified Dental Assistant, so you get trained hands and careful aftercare.",
+  },
+  {
+    title: "We come to you",
+    body: "Home-based studio plus mobile visits across Ventura County. Skip the office. Stay in your comfort zone.",
+  },
+  {
+    title: "Tooth gems, same visit",
+    body: "Add a dainty gem while you’re already in the chair — a little bling, still polished and professional.",
+  },
+];
+---
+
+<section class="bg-blush-soft px-5 py-12 lg:px-8 lg:py-16" aria-labelledby="benefits-heading">
+  <div class="mx-auto max-w-5xl">
+    <p class="text-center text-[0.7rem] font-bold uppercase tracking-[0.28em] text-lip">Why choose us</p>
+    <h2 id="benefits-heading" class="mt-2 text-center font-display text-3xl italic text-ink sm:text-4xl">
+      Pretty results. Real credentials.
+    </h2>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {
+        benefits.map((item) => (
+          <article class="rounded-3xl bg-white p-6 shadow-[0_10px_30px_-18px_rgb(26_18_22_/_0.35)] ring-1 ring-blush/80">
+            <Sparkle class="h-4 w-4 text-lip" />
+            <h3 class="mt-3 font-sans text-lg font-bold text-ink">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-9 flex justify-center">
+      <BookButton class="w-full max-w-xs" />
+    </div>
+  </div>
+</section>

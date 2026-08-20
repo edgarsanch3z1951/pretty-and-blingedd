@@ -1,0 +1,52 @@
+---
+const shots = [
+  {
+    src: "/images/beforeafter1.webp",
+    alt: "Teeth whitening before and after results, Ventura County",
+  },
+  {
+    src: "/images/beforeafter2.webp",
+    alt: "Teeth whitening before and after results showing a brighter smile, Ventura County",
+  },
+  {
+    src: "/images/before-after-3.webp",
+    alt: "Teeth whitening before and after transformation, Ventura County",
+  },
+  {
+    src: "/images/gem.webp",
+    alt: "Tooth gem butterfly crystal on a client's smile, Ventura County",
+  },
+];
+---
+
+<section class="px-5 py-12 lg:px-8 lg:py-16" aria-labelledby="gallery-heading">
+  <div class="mx-auto max-w-4xl">
+    <p class="text-center text-[0.7rem] font-bold uppercase tracking-[0.28em] text-lip">The glow</p>
+    <h2 id="gallery-heading" class="mt-2 text-center font-display text-3xl italic text-ink sm:text-4xl">
+      Before, after, and a little sparkle
+    </h2>
+    <p class="mx-auto mt-3 max-w-md text-center text-sm text-ink-muted">
+      Real client results — whitening transformations and tooth gem details.
+    </p>
+
+    <ul class="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:max-w-3xl lg:mx-auto">
+      {
+        shots.map((shot) => (
+          <li>
+            <figure class="overflow-hidden rounded-2xl shadow-[0_8px_24px_-12px_rgb(236_30_121_/_0.35)] ring-1 ring-blush/70">
+              <img
+                src={shot.src}
+                alt={shot.alt}
+                width="1080"
+                height="1920"
+                loading="lazy"
+                decoding="async"
+                class="block h-auto w-full"
+              />
+            </figure>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

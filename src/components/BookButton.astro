@@ -1,0 +1,12 @@
+---
+interface Props {
+  label?: string;
+  class?: string;
+}
+
+const { label = "Book Your Session", class: className = "" } = Astro.props;
+---
+
+<button type="button" class:list={["btn-cta", className]} data-open-booking>
+  {label}
+</button>

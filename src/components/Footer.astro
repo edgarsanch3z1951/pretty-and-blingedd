@@ -1,0 +1,36 @@
+---
+import BookButton from "./BookButton.astro";
+import InstagramLink from "./InstagramLink.astro";
+
+const phoneDisplay = "(805) 843-4728";
+const phoneHref = "tel:+18058434728";
+---
+
+<footer class="border-t border-blush bg-blush-soft px-5 pb-8 pt-12 text-center lg:px-8">
+  <div class="mx-auto flex max-w-md flex-col items-center">
+    <img
+      src="/images/logo.webp"
+      alt="Pretty and Blingedd logo — glossy pink lips with a sparkling tooth gem"
+      width="72"
+      height="72"
+      loading="lazy"
+      decoding="async"
+      class="h-16 w-16 rounded-full object-cover ring-2 ring-white"
+    />
+    <p class="mt-3 font-sans text-lg font-extrabold tracking-tight text-ink">Pretty and Blingedd</p>
+    <p class="mt-1 text-sm text-ink-muted">Certified Teeth Whitening & Tooth Gems</p>
+    <p class="mt-3 text-sm font-semibold text-ink">📍 Ventura County · Mobile & Home Visits</p>
+    <a href={phoneHref} class="mt-2 text-base font-bold text-lip underline-offset-4 hover:underline">
+      {phoneDisplay}
+    </a>
+
+    <InstagramLink
+      showLabel
+      class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink"
+    />
+
+    <BookButton class="mt-6 w-full max-w-xs" />
+
+    <p class="mt-8 text-xs text-ink-muted">© 2026 Pretty and Blingedd. All rights reserved.</p>
+  </div>
+</footer>

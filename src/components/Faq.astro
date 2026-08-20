@@ -1,0 +1,64 @@
+---
+import BookButton from "./BookButton.astro";
+
+const faqs = [
+  {
+    q: "Is teeth whitening safe?",
+    a: "Yes — when it’s done by a trained professional with the right products for your enamel. As a Certified Dental Assistant, we screen for sensitivity and walk you through aftercare so results stay pretty and healthy.",
+  },
+  {
+    q: "Will it hurt or cause sensitivity?",
+    a: "Most clients feel little to no discomfort. Some people notice temporary sensitivity, which usually settles quickly. Tell us about any existing sensitivity and we’ll adjust the session.",
+  },
+  {
+    q: "How long do results last?",
+    a: "Whitening typically lasts several months, depending on coffee, tea, wine, and smoking. Tooth gems last until you choose to remove them, with simple at-home care. We’ll give you a maintenance plan.",
+  },
+  {
+    q: "Is it safe to have this done at home instead of a dental office?",
+    a: "Yes. You’re still in trained hands — just in a more comfortable setting. We follow professional hygiene standards and will refer you to a dentist if something is outside our scope.",
+  },
+  {
+    q: "Do you come to me, or do I come to you?",
+    a: "Both. We’re a home-based service in Ventura County, and mobile visits are available. We’ll confirm the best option when you book.",
+  },
+  {
+    q: "How much does it cost?",
+    a: "Whitening is $50 for 1 session, $90 for 2 (recommended), $120 for 3, and $30 for a 30-minute touch-up. Tooth gems are $10 / $18 / $25 for 1–3 gems, and removal is $10. Add gems onto a whitening visit in the booking form.",
+  },
+  {
+    q: "How long does the appointment take?",
+    a: "A whitening session is typically 45–60 minutes with 2–3 rounds. Touch-ups take about 30 minutes. Tooth gems usually fit in the same visit if you add them on.",
+  },
+  {
+    q: "Can I get tooth gems at the same time?",
+    a: "Absolutely. Gems are a popular add-on during a whitening visit so you leave brighter and a little blinged in one stop.",
+  },
+];
+---
+
+<section class="px-5 py-12 lg:px-8 lg:py-16" aria-labelledby="faq-heading">
+  <div class="mx-auto max-w-2xl">
+    <p class="text-center text-[0.7rem] font-bold uppercase tracking-[0.28em] text-lip">FAQ</p>
+    <h2 id="faq-heading" class="mt-2 text-center font-display text-3xl italic text-ink sm:text-4xl">
+      Quick answers
+    </h2>
+
+    <div class="mt-8 divide-y divide-blush overflow-hidden rounded-3xl bg-white ring-1 ring-blush">
+      {
+        faqs.map((item) => (
+          <details class="faq-item group px-5 py-1">
+            <summary class="flex cursor-pointer items-center gap-3 py-4">
+              <h3 class="m-0 flex-1 text-left font-sans text-[0.95rem] font-bold text-ink">{item.q}</h3>
+            </summary>
+            <p class="pb-4 pr-8 text-sm leading-relaxed text-ink-muted">{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+
+    <div class="mt-9 flex flex-col items-center gap-3 text-center">
+      <BookButton class="w-full max-w-lg" />
+    </div>
+  </div>
+</section>

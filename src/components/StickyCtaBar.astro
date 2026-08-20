@@ -1,0 +1,19 @@
+---
+const phoneHref = "tel:+18058434728";
+---
+
+<div
+  class="sticky-cta fixed inset-x-0 bottom-0 z-40 border-t border-blush bg-cream/95 px-3 py-2.5 pb-[max(0.65rem,env(safe-area-inset-bottom))] backdrop-blur-md lg:hidden"
+>
+  <div class="mx-auto grid max-w-lg grid-cols-2 gap-2">
+    <a
+      href={phoneHref}
+      class="inline-flex items-center justify-center rounded-full border border-ink/15 bg-white px-3 py-3 text-sm font-bold text-ink shadow-sm"
+    >
+      📞 Call Now
+    </a>
+    <button type="button" class="btn-cta w-full px-3 py-3 text-sm" data-open-booking>
+      Book Your Session
+    </button>
+  </div>
+</div>
